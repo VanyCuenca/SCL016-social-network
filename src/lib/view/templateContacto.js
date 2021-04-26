@@ -1,14 +1,12 @@
 export const contacto = () => {
     const divContacto = document.createElement("div");
-    const viewContacto =
-
-    `
-    <div class="login">
+    const viewContacto = `
+    <div class="contacto">
       <div class="header">
       <div class="logo">
         <img src="img/favicon.png" alt="logo">
       </div>
-      <div class="tituloRegistro">
+      <div class="crar contacto">
       <h2 class="registroUsuario">Iniciar Sesion</h2>
     </div>
     <div class="main">
