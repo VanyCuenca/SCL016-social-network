@@ -11,20 +11,20 @@ export const menu = () => {
     <div class='menu'>
       <ul>
         <li>
-          <a href='#/'>check In</a>
+          <a href='#/checkIn'>check In</a>
         </li>
         <li>
           <a href='#/logIn'>log In</a>
-        </li>
+        </li>        
         <li>
           <a href='#/singOff'>Sign Off</a>
         </li>
       </ul>
     </div>
-    <div class= 'welcome'>
+    <div class= 'containerMenu'>
       <p>Si quieres disfrutar de las  bellezas  naturales y creaciones hermosas, o has visitado lugares impresionates y quieres  compartir tu experiencia
-      resgistrate y unete a Tourist Places una comunidad que te ayuda no solo  a relacionarte con  nuevas personas  , si no  a descubrir lugares impresionante.</p>
-    </div>
+        resgistrate y unete a Tourist Places una comunidad que te ayuda no solo  a relacionarte con  nuevas personas  , si no  a descubrir lugares impresionante.</p>
+   </div>
 `;
 
   return viewMenu;

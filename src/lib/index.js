@@ -1,38 +1,145 @@
-// aqui exportaras las funciones que necesites
+// autentificación de Usuario
+export const register = (email, password) => {
+  return firebase
+    .auth()
+    .createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+      // console.log(errorCode);
+      // console.log(errorMessage);
+    });
+};
 
-// export const myFunction = () => {
-  // registro de Usuario
-  // const signUpForm = document.querySelector("#signup-form");
+export const auth2 = (email2, password2) => {
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(email2, password2)
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+};
+// base de datos
+export const firestore = () => {
+  return firebase.firestore();
+};
 
-  // signUpForm.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   const email = document.querySelector("#signup-email").value;
-  //   const password = document.querySelector("#signup-password").value;
-  //   console.log(email + password);
+// // iniciar con google
+export const google = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
 
-  //   auth
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((userCredential) => {
-  //       // clear the form
-  //       signUpForm.reset();
-  //     });
-  // });
+  return firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      /** @type {firebase.auth.OAuthCredential} */
+      const credential = result.credential;
 
-  // Iniciar secion
-//   const signInForm = document.querySelector("#login-form");
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log('user', user);
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential;
+      console.log('error', error);
+      // ...
+    });
+};
 
-//   signInForm.addEventListener("submit", (e) => {
-//     e.preventDefault();
-//     const email = document.querySelector(".login-email").value;
-//     const password = document.querySelector(".login-password").value;
+export const signOut = () => {
+  return firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      console.log('Saliendo');
+    })
+    .catch((error) => {
+      console.log('error');
+      
+function showHideDiv(divId, show) {
+  const div = document.querySelector('#' + divId);
+  if (show) {
+    div.style = 'display: visible';
+  } else {
+    div.style = 'display: none';
+  }
+}
 
-//     // Autenticar usurio
-//     auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-//       // resetear formulario
-//       signInForm.reset();
-//       console.log("login");
-//     });
-//   });
+function requestPermission() {
+  console.log('Requesting permission...');
+  Notification.requestPermission().then((permission) => {
+    if (permission === 'granted') {
+      console.log('Notification permission granted.');
+      // TODO(developer): Retrieve a registration token for use with FCM.
+      // In many cases once an app has been granted notification permission,
+      // it should update its UI reflecting this.
+      resetUI();
+    } else {
+      console.log('Unable to get permission to notify.');
+    }
+    });
+  };
+// agregar nota en este caso recibe un string "textNewNote" con el texto de la nota es decir lo que escribio el usuario en el input
+// lo agregamos a nuestra coleccion de notas a un objeto que tiene un titulo y un estado en falso porqueporque todavia no se va a utilizar
 
-//   console.log("Hola mundo!");
-// };
+export const addNote = (textNewNote) => {
+  return firebase.firestore().collection('notes').add({
+    title: textNewNote,
+    state:false
+
+  })
+}
+// eliminar notas recibe como parametro el id de la nota que se desea eliminar
+export const delteNote = (idNote) => {
+  return firebase.firestore().collection('notes').doc(idNote).delete()
+}
+// para traer todas las notas cada vez que se actualice en tiempo real gracias a onSnapshot actualiza
+export const getNote = (callback) => {
+ return firebase.firestore().collection('notes')
+  .onSnapshot((querySnapshot) => {
+    const data = [];
+    querySnapshot.forEach ((doc) => {
+      data.push({ id: doc.id, ...doc.data() })
+    })
+    callback(data);
+  })
+}
+// mensaje
+export const observer = () => { 
+  return firebase.auth().onAuthStateChanged((user) => {
+    if (user) {    
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      // ...
+    } else {
+      message();
+      // User is signed out
+      // ...
+  }
+  }); 
+};
+export const storage = () => { 
+  const storage = firebase.storage();
+};

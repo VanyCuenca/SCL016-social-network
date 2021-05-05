@@ -1,36 +1,89 @@
+import { auth} from '../index.js';
+import { google } from '../index.js';
+import { observer } from '../index.js'
 export const login = () => {
-    const divLogIn = document.createElement('div');
-    const viewLogIn = `
-      <div class='login'>
-        <div class='header'>
-          <div class='logo'>
-            <img src='img/logotipo.png' alt='logo'>
-          </div>
-          <div class='tituloRegistro'>
-            <h2 class='Log In'>log In</h2>
-          </div>
+  const divLogIn = document.createElement('div');
+  const viewLogIn = `
+    <div class='login'>
+      <div class='header'>
+        <div class='logo'>
+          <img src='img/logotipo.png' alt='logo'>
         </div>
-        <div class='main'>
-          <div class='record'> 
+        <div class='tituloRegistro'>
+          <h2 class='logIn'>log In</h2>
+        </div>
+      </div>
+      <div class='main'>
+        <div class='record'>
             <form  id='login-form'>
-              <div class='formRegistro'>
-                <label>Email Adress</label>
-                <input type='email' name='email' class='login-email'>      
-                <label>Enter password</label>
-                <input type='password' name='contraseña' class='login-password'>
-                <button type='submit' id='botonInicioSesion' class='botonInicioSesion'>'Log In'</button>
-              </div>
-              <div class=' recoverPassword>
-                <a href='#/recuperarContraseña'>recover password </a>
-              </div>
-              <div class=' recoverPassword>
-              <img src='img/email.png' alt='email logo'>
-              <button id='buttonGoogle' class='botonInicioSesion'>'login with Google'</button>
-              </div>           
+            <div class='formRegistro'>
+              <label>Email Adress</label>
+        <input
+          type='email'
+          name='email'
+          class='login-email'
+          placeholder='E-mail'
+        />
+        <label>Enter 6 digit password</label>
+        <input
+          type='password'
+          name='password'
+          class='login-password'
+          placeholder='password'
+        />
+        <button id='buttonLogIn' class='buttonLogIn'>Log In</button>
+      </div>
+      <div class='recoverPassword'>
+        <a href='#/recoverPassword'>recover password</a>
+      </div>
+      <div class='close' id='close'>
+      <button id='signOff' class='buttonSignOff'>Sign off</button>
+      </div>
+      <div class='google'>
+        <img src='img/email.png' alt='email logo' />
+        <button id='buttonGoogle2' class='buttonGoogle'>
+          login with Google
+        </button>
+      </div>
             </form> 
-          </div>
-        </div>
-      </div>`;
-    divLogIn.innerHTML = viewLogIn;
-    return divLogIn;
+    </div>
+  </div>
+</div>`;
+  divLogIn.innerHTML = viewLogIn;
+  // google
+  const buttonGoogle2 = divLogIn.querySelector('#buttonGoogle2');
+  buttonGoogle2.addEventListener('click', () => {
+    google();
+    location.href = '#/start';
+  });
+  // inicio de sesión
+  const buttonLogIn = divLogIn.querySelector('#buttonLogIn');
+  buttonLogIn.addEventListener('click', () => {
+    console.log('escucho cick');
+    let email = document.querySelector('.login-email');
+    let password = document.querySelector('.login-password');
+    email = email.value;
+    password = password.value;
+    auth2(email, password);
+    location.href = '#/start';
+  });
+  // mensaje usuario regietrado
+  const message = () => {
+    const messageInvalid = divLogIn.querySelector('.message');
+    messageInvalid.innerHTML = 'invalid email or password';
+
+    observer(message);
   };
+
+  // cerrar sesion
+
+  const closeRecover = () => {
+    const buttonSignOff = divLogIn.querySelector('#signOff');
+    buttonSignOff.addEventListener('click', () => {
+      signOut();
+    });
+    closeRecover();
+  };
+
+  return divLogIn;
+};
