@@ -16,9 +16,6 @@ export const menu = () => {
         <li>
           <a href='#/logIn'>log In</a>
         </li>        
-        <li>
-          <a href='#/singOff'>Sign Off</a>
-        </li>
       </ul>
     </div>
     <div class= 'containerMenu'>

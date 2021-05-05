@@ -16,12 +16,6 @@ Este proyecto es una Red Social, pensado para aquellos usuarios amantes de las b
   ## Tourist Places
 
 
-
-
-
- ## TITULO DEL PROYECTO
-MEMORY CODE
-
 ## PROTOTIPO DE BAJA FIDELIDAD:
 -Realizamos el prototipo de baja fidelidad para hacer un testeo con los posible usuarios.
 
@@ -40,7 +34,6 @@ MEMORY CODE
  <img src="img/encuestaRespuesta4.png" alt="prototipoUno" width="200"/>
  <img src="img/encuestaRespuesta5.png" alt="prototipoUno" width="1000"/>
 
- esta ultima respuesta nos llamo mucho la atención ya que no colocamos los items de seleccion de los conceptos basicos a aprender.
  
  ## HISTORIA DE USUARIO
  las historias de usuario tomadas
@@ -87,7 +80,6 @@ git branch -l (para ver en que rama estoy)
  2-se declara una constante nombre que sera igual a la funcion y dentro de esta una constante que contendra la estructura de esa vista entre comillas y retornamos su valor,
  3- luego en el main.js importamos esta funcion y la imprimimos a traves de la manipulacion dinamica del Dom.
  
- -Segunda, tercera y cuarta vista: juego de las opciones HTML, CSS, JS respectivamente con un boton de inicio que te redirige a la primera vista.
 
  -Primera vista: representada por el menu.
 
@@ -95,11 +87,8 @@ git branch -l (para ver en que rama estoy)
 
 -Quinta vista: donde se felicita al usuario por terminar la jugada y pasa al siguiente nivel.
 
-En la terminal local realizamos los commit para guardar los cambios y cuando le dimos git push origin Desarrollo nos daba un  error que resolvimos con la ayuda de Ely, creando una nueva rama del proyecto y clonandolo nuevamente.
-y trabajamos en partes distintas del proyecto para no generar tantos errores.
 
 ## FUNCIONALIDAD
-  ### Creamos los componentes del juego
 
 
   ### Configuracion de FIREBASE
@@ -120,80 +109,8 @@ y trabajamos en partes distintas del proyecto para no generar tantos errores.
 
   - tambien nos guiamos por las exportaciones e importaciones existentes.
 
-  ### Extraer los datos de los componentes
-   para extraer los datos dentro de los componentes vemos el orden en que esta estructurado el componente y tomamos el dato que necesitamos ejemplo:
-   si tenemos este componete y queremos en js obtener su clase:
- 
-name: 'cssNivelUno',
-    items: [
-      { id: 'cssNivel1,1,1', image: 'cartas/CSSNivel1/agua.png', class:0 },
-      { id: 'cssNivel1,1,2', image: 'cartas/CSSNivel1/agua1.png', class:0 },
-      { id: 'cssNivel1,2,1', image: 'cartas/CSSNivel1/amarillo.png', class:1  },
-      { id: 'cssNivel1,2,2', image: 'cartas/CSSNivel1/amarillo1.png', class:1  },
-
-    ],
-  };
  
 
-para obtener su clase:
-1- el nombre :cssNivelUno
-2- el items
-3- el array con el numero del items que quieres la clase
-4- lo que queremos obtener en este caso la clase pero tambien puede ser el id, el nombre ....
-
-entonces nuestro codigo nos quedaria:
-
-cssNivelUno.items[Array[1]].class
-
-
-### Implementamos la funcionalidad del juego
-
--creamos la funcion de pasar de una vista a la otra.
--la funcion para barajar,
-- funcion del cronometro.
 
 ## SEGUNDO SPRINT
 se consigue regitrar el usuario con su correo y contraseña, se crean los templates de cada vista
-
-mostramos nuestror avances y recibimos buenos comentarios hacia nuestro proyecto.
-tambien tuvimos feedback de nuestro squa y Ely nos dieron algunas recomendaciones para no hacer nuestro HTML tan extenso y crear las cartas desde el js,
-
-## Restructuracion del Codigo
-Eliminamos todas las cartas del html y buscamos la forma de llamarlas desde el Js. implementamos varios codigos y conseguimos uno pero usaba this en su estructura nos reunimos con Marcia y nos dijo que podiamos utilizar e.target, e investigamos sobre ello y con prueba y error logramos la funcionalidad del juego en la categoria Html.
-
-## TERCER SPRINT
-mostramos la reestucturacion de nuestro Html y los avances del CSS.
-
-
-## continuacion de Funcionalida
-trabajamos en la funcion de enviar mensaje de Felicitaciones al usuario al terminar el primer nivel y lo logramos pero al pasar a la seleccion de una nueva categoria nos arrojaba un error y lo solucionamos con la ayuda de Sergio cambiando los input por imagen.
-
-## CUARTO SPRINT
-mostramos la funcionalidad del proyecto y obtuvimos buenos comentarios
-
-## zoom cartas
-
--trabajamos para dar zoom a las cartas y lo hicimos mas responsive utilizando la media
--realizamos test de usabilidad y cronometro daba un error. al surgir el error nos dimos cuenta que la App era de aprendizaje y el usuario para poder aprender necesitaba tiempo para leer las cartas.
- 
- ## QUINTO SPRINT
- mostramos nuetro proyecto funcionando y  dos formas de mostrar el contenido de las cartas mas grande, nos dijeron con cual se sentian mas comodas y lo tomamos en cosideracion para implementarlo en nuestro proyecto.
-
- ## ACIERTOS, TIEMPO e INTENTOS
- continuamos con la funcionalidad de nuestra App y nos dedicamos a trabajar :
- 
- -los intentos cuando el usuario seleccione dos cartas.
-
- -Hacer que el cronometro comience cuando se presione la primera carta.
-
- -activar los aciertos cuando dos cartas sean pares.
- 
-
-## SEXTO SPRINT
-se mostro el codigo con toda la funcionalidad activa.
-
- ## TEST UNITARIO
-
- investigamos sobre los test unitario y existen varias formas de hacerlos.
-
- realizamos un test para probar que la funcion Shuffle devuelve un array distinto al inicial.

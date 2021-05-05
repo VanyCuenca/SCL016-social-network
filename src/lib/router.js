@@ -1,12 +1,11 @@
 import { checkin } from './view/templateCheckIn.js';
 import { contact } from './view/templateContact.js';
 import { login } from './view/templateLogIn.js';
-import { signOff } from './view/templateSignOff.js';
 import { profile } from './view/templateProfile.js';
-import { addContact } from './view/templateAddContac.js';
-import { home } from './view/templateHome.js';
+import { addContact } from './view/templateAddContact.js';
+import { start } from './view/templateStart.js';
 import { recoverPassword } from './view/templateRecoverPassword.js';
-import { favourite } from './view/templateFavourite.js';
+import { favorite } from './view/templateFavorite.js';
 import { shops } from './view/templateShops.js';
 
 // import { menu } from './view/templateMenu.js';
@@ -20,9 +19,6 @@ export const changeRouter = (hash) => {
   } else if (hash === '#/logIn') {
     // console.log('hash/logIn');
     return showTemplate(hash);
-  } else if (hash === '#/singOff') {
-    // console.log('hash/singOff');
-    return showTemplate(hash);
   } else if (hash === '#/addContact') {
     // console.log('hash/logIn');
     return showTemplate(hash);
@@ -32,13 +28,13 @@ export const changeRouter = (hash) => {
   } else if (hash === '#/profile') {
     // console.log('hash/singOff');
     return showTemplate(hash);
-  } else if (hash === '#/home') {
+  } else if (hash === '#/start') {
     // console.log('hash/logIn');
     return showTemplate(hash);
   } else if (hash === '#/recoverPassword') {
     // console.log('hash/singOff');
     return showTemplate(hash);
-  } else if (hash === '#/favourite') {
+  } else if (hash === '#/favorite') {
     // console.log('hash/logIn');
     return showTemplate(hash);
   } else if (hash === '#/shops') {
@@ -62,9 +58,6 @@ const showTemplate = (hash) => {
     case '#/logIn':
       containerRoot.appendChild(login());
       break;
-    case '#/singOff':
-      containerRoot.appendChild(signOff());
-      break;
     case '#/AddContact':
       containerRoot.appendChild(addContact());
       break;
@@ -74,14 +67,14 @@ const showTemplate = (hash) => {
     case '#/profile':
       containerRoot.appendChild(profile());
       break;
-    case '#/home':
-      containerRoot.appendChild(home());
+    case '#/start':
+      containerRoot.appendChild(start());
       break;
     case '#/recoverPassword':
       containerRoot.appendChild(recoverPassword());
       break;
-    case '#/favourite':
-      containerRoot.appendChild(favourite());
+    case '#/favorite':
+      containerRoot.appendChild(favorite());
       break;
     case '#/shops':
       containerRoot.appendChild(shops());

@@ -1,23 +1,23 @@
-import { auth} from '../index.js';
+import { auth2 } from '../index.js';
 import { google } from '../index.js';
-import { observer } from '../index.js'
+import { observer } from '../index.js';
+import { signOut } from '../index.js';
 export const login = () => {
   const divLogIn = document.createElement('div');
   const viewLogIn = `
-    <div class='login'>
-      <div class='header'>
-        <div class='logo'>
-          <img src='img/logotipo.png' alt='logo'>
-        </div>
-        <div class='tituloRegistro'>
-          <h2 class='logIn'>log In</h2>
-        </div>
-      </div>
-      <div class='main'>
-        <div class='record'>
-            <form  id='login-form'>
-            <div class='formRegistro'>
-              <label>Email Adress</label>
+  <div class='login'>
+  <div class='header'>
+    <div class='logo'>
+      <img src='img/logotipo.png' alt='logo' />
+    </div>
+    <div class='tituloRegistro'>
+      <h2 class='logIn'>log In</h2>
+    </div>
+  </div>
+  <div class='containerLogIn'>
+    <div class='record'>
+      <div class='formRegistro'>
+        <label>Email Adress</label>
         <input
           type='email'
           name='email'
@@ -45,7 +45,6 @@ export const login = () => {
           login with Google
         </button>
       </div>
-            </form> 
     </div>
   </div>
 </div>`;

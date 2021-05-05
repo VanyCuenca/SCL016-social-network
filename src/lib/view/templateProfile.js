@@ -1,13 +1,13 @@
-export const perfil = () => {
-  const divPerfil = document.createElement('div');
-  const viewPerfil = `
-  <div class='perfilUsuario'>
+export const profile = () => {
+  const divProfile = document.createElement('div');
+  const viewProfile = `
+  <div class='profileUsuario'>
   <div class='header'>
     <div class='logo'>
       <img src='img/Tlogo.png' alt='logo'>
     </div>       
   </div>
-  <div class='perfil'>
+  <div class='profile'>
     <div class='buscar'>
       <img src='img/lupa.png' alt=''>
         <input type='text'>
@@ -22,6 +22,6 @@ export const perfil = () => {
     </div>
   </div>
 </div> `;
-  divPerfil.innerHTML = viewPerfil;
-  return divPerfil;
+  divProfile.innerHTML = viewProfile;
+  return divProfile;
 };

@@ -77,27 +77,6 @@ export const signOut = () => {
     .catch((error) => {
       console.log('error');
       
-function showHideDiv(divId, show) {
-  const div = document.querySelector('#' + divId);
-  if (show) {
-    div.style = 'display: visible';
-  } else {
-    div.style = 'display: none';
-  }
-}
-
-function requestPermission() {
-  console.log('Requesting permission...');
-  Notification.requestPermission().then((permission) => {
-    if (permission === 'granted') {
-      console.log('Notification permission granted.');
-      // TODO(developer): Retrieve a registration token for use with FCM.
-      // In many cases once an app has been granted notification permission,
-      // it should update its UI reflecting this.
-      resetUI();
-    } else {
-      console.log('Unable to get permission to notify.');
-    }
     });
   };
 // agregar nota en este caso recibe un string "textNewNote" con el texto de la nota es decir lo que escribio el usuario en el input

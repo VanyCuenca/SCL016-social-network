@@ -17,7 +17,6 @@ export const checkin = () => {
       </div>
       <div class='containerChekIn'>
         <div class='record'>
-          <form  id='checkin-form'>
             <div class='formRegistro'>
               <label>Email Adress</label>
               <input type='email' name='email' class='checkin-email' placeholder='E-mail'>      
@@ -29,7 +28,6 @@ export const checkin = () => {
             <img src='img/email.png' alt='email logo'>
              <button id='buttonGoogle' class='buttonGoogle'>checkin with Google</button>
             </div>  
-          </form> 
         </div>
       </div>
     </div>`;
