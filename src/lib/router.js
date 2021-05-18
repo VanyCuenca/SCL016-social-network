@@ -7,6 +7,7 @@ import { start } from './view/templateStart.js';
 import { recoverPassword } from './view/templateRecoverPassword.js';
 import { favorite } from './view/templateFavorite.js';
 import { shops } from './view/templateShops.js';
+import { getNotes } from '../lib/index.js';
 
 // import { menu } from './view/templateMenu.js';
 // cambiar rutacon changeRoute con parametro hash

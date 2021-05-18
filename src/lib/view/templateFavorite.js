@@ -1,19 +1,25 @@
 export const favorite = () => {
-  const divFavorite = document.createElement("div");
+  const divFavorite = document.createElement('div');
   const viewFavorite = `
-  <div class='favorite'>
-      <div class='header'>
+    <div class='favoriteContainer'>
+      <div class='header1'>
         <div class='logo'>
-          <img src='img/logotipo.png' alt='logo' />
+          <img src='img/palmerita.png' class='logotipo1'alt='logo'>
         </div>
         <div class='title'>
-          <h1>ourist places</h1>
+          <h1 class='subtitle'>ourist places</h1>
+        </div>
+        <div class='usuario'>
+          <a title='profile' href='#/profile'><img src='img/usuario2.png' alt='profile' class= 'user1' /></a>
+        </div>
+        <div class='back1'>
+          <a id ='backFavorite' class ='back'><img src='img/volver8.png' alt='profile' /></a>
         </div>
       </div>
       <div class='menu'>
         <ul>
           <li>
-            <a href='#/AddContact'>Add Contact</a>
+            <a href='#/AddContact'>AddContact</a>
           </li>
           <li>
             <a href='#/contact'>Contact</a>
@@ -29,31 +35,53 @@ export const favorite = () => {
           </li>
         </ul>
       </div>
-      <div class='maincontactosUsuario'>
-        <div class='usuario'>
-        <a title='profile' href='#/profile'><img src='img/usuario1.png' alt='profile' /></a>
+      <div class='containerFavorite'>
+        <div class='subtitulo'>
+          <h2>Favorite</h2>
+        </div>
+        <div class='favoriteList'>
+          <div class='public1'>
+            <img class='imgPublic1' src='img/losroques.jpg'  alt="imagen">
+          </div>
+          <div class='public2'>
+            <img class='imgPublic2' src='img/losRoques4.jpg'  alt="imagen">
+          </div>
+          <div class='public3'>
+            <img class='imgPublic3' src='img/Valle.jpg'  alt="imagen">
+          </div>
+          <div class='public4'>
+            <img class='imgPublic4' src='img/Muelle.jpg'  alt="imagen">
+          </div>
+          <div class='public5'>
+            <img class='imgPublic3' src='img/img3.jpg'  alt="imagen">
+          </div>
+          <div class='public6'>
+            <img class='imgPublic4' src='img/img5.jpg'  alt="imagen">
+          </div>
         </div>
       </div>
-      <div>
-        <h2>Favorite</h2>
-      </div>
-      <div class='favoriteList'>aqui imagenes y videos favoritos</div>
       <div class='footer'>
-      <div class='inicio'>
-        <a title="home" href='#/start'><img src='img/casa.png' alt='home' /></a>
+        <div class='inicio'>
+          <a title='home' href='#/start'><img src='img/home.png' alt='home' class= 'home' /></a>
+        </div>
+        <div class='favorito'>
+          <a title='favorite' href='#/favorite'><img src='img/start.png' class= 'start' alt='Favorite' /></a>
+        </div>
+        <div class='shops'>
+          <a title='shops' href='#/shops'><img src='img/tienda8.png' alt='shops' class= 'shops'/></a>
+        </div>
+        <div class='usuario'>
+          <a title='profile' href='#/profile'><img src='img/usuario2.png' alt='profile' class= 'user4' /></a>
+        </div>
       </div>
-      <div class='favorito'>
-        <a title='favorite' href='#/favorite'><img src='img/estrella.png' alt='Favorite' /></a>
-      </div>
-      <div class='tienda'>
-        <a title='shops' href='#/shops'><img src='img/tienda.png' alt='shops' /></a>
-      </div>
-      <div class='usuario'>
-        <a title='profile' href='#/profile'><img src='img/usuario1.png' alt='profile' /></a>
-      </div>
-    </div> 
-    </div> `;
+    </div>`;
+
 
   divFavorite.innerHTML = viewFavorite;
+
+    const buttonBackFavorite = divFavorite.querySelector('#backFavorite');
+  buttonBackFavorite.addEventListener('click', e => {
+  history.back();
+  });
   return divFavorite;
 };

@@ -1,35 +1,13 @@
-// autentificación de Usuario
 export const register = (email, password) => {
   return firebase
     .auth()
-    .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      // console.log(errorCode);
-      // console.log(errorMessage);
-    });
+    .createUserWithEmailAndPassword(email, password);
+    
 };
-
-export const auth2 = (email2, password2) => {
+export const signIn = (email2, password2) => {
   return firebase
     .auth()
-    .signInWithEmailAndPassword(email2, password2)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+    .signInWithEmailAndPassword(email2, password2);
 };
 // base de datos
 export const firestore = () => {
@@ -65,6 +43,7 @@ export const google = () => {
       console.log('error', error);
       // ...
     });
+    
 };
 
 export const signOut = () => {
@@ -78,32 +57,23 @@ export const signOut = () => {
       console.log('error');
       
     });
-  };
-// agregar nota en este caso recibe un string "textNewNote" con el texto de la nota es decir lo que escribio el usuario en el input
-// lo agregamos a nuestra coleccion de notas a un objeto que tiene un titulo y un estado en falso porqueporque todavia no se va a utilizar
-
-export const addNote = (textNewNote) => {
-  return firebase.firestore().collection('notes').add({
-    title: textNewNote,
-    state:false
-
+};
+// agregar nota en este caso recibe un string 'textNewNote'
+export const addComment = (textNewComment) => {
+  return firebase.firestore().collection('comments').add({
+    title: textNewComment,
+    date:new Date(),
   })
 }
 // eliminar notas recibe como parametro el id de la nota que se desea eliminar
-export const delteNote = (idNote) => {
-  return firebase.firestore().collection('notes').doc(idNote).delete()
+export const deleteNote = (idNote) => {
+  return firebase.firestore().collection('comments').doc(idNote).delete()
 }
 // para traer todas las notas cada vez que se actualice en tiempo real gracias a onSnapshot actualiza
-export const getNote = (callback) => {
- return firebase.firestore().collection('notes')
-  .onSnapshot((querySnapshot) => {
-    const data = [];
-    querySnapshot.forEach ((doc) => {
-      data.push({ id: doc.id, ...doc.data() })
-    })
-    callback(data);
-  })
+export const getNotes  = () => {
+  return firebase.firestore().collection('comments').get();
 }
+
 // mensaje
 export const observer = () => { 
   return firebase.auth().onAuthStateChanged((user) => {
@@ -116,9 +86,9 @@ export const observer = () => {
       message();
       // User is signed out
       // ...
-  }
+    }
   }); 
 };
-export const storage = () => { 
-  const storage = firebase.storage();
-};
+// export const storage = () => { 
+//   const storage = firebase.storage();
+// };
